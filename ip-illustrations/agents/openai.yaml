@@ -1,0 +1,6 @@
+interface:
+  display_name: "IP 正文配图库"
+  short_description: "为中文文章自动选择或指定独立 IP 工作流，生成怪诞清爽的正文配图资产"
+  default_prompt: "Use $ip-illustrations to 为这篇中文文章选择合适 IP，并设计几张正文配图。"
+policy:
+  allow_implicit_invocation: true

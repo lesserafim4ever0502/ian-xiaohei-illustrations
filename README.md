@@ -1,281 +1,204 @@
-# Ian Xiaohei Illustrations
+# IP Illustrations / IP 正文配图库
 
-> 把中文文章里的判断、流程、状态和隐喻，变成一张张白底、手绘、怪诞但清爽的正文配图。
+> English: A Codex Skill for choosing one isolated visual IP workflow and turning Chinese articles into clean, strange, hand-drawn explanatory illustrations.
 >
-> 16:9 横版 | 小黑 IP | 纯白手绘 | 少量红橙蓝中文批注 | Codex Skill
+> 中文：一个 Codex Skill，用“IP 备选库 + 隔离工作流”的方式，为中文文章生成白底、手绘、怪诞但清爽的正文配图。
+>
+> 16:9 horizontal / 16:9 横版 | isolated IP workflow / 隔离 IP 工作流 | pure white sketch / 纯白手绘 | sparse Chinese notes / 少量中文批注
 
 ---
 
-## 这个仓库是什么
+## What This Is / 这个仓库是什么
 
-Ian Xiaohei Illustrations 是一个 Codex Skill，用来指导 AI Agent 为中文文章、帖子、博客、Notion 文档和方法论内容生成正文配图。
+English:
 
-它不是通用插画 prompt，也不是 PPT 信息图模板。它的核心目标是：先理解文章里的认知锚点，再把其中一个判断、流程、结构、状态或隐喻，变成一张有记忆点的 16:9 手绘解释图。
+IP Illustrations is a multi-IP Codex Skill for Chinese article illustrations. It does not put multiple characters into one image. Instead, it chooses exactly one IP workflow for the current article, then uses that workflow's character, composition rules, prompt template, and QA checklist.
 
-默认视觉 IP 是“小黑”：一个黑色实心、白点眼、细腿、空表情的小角色。小黑不是吉祥物，不是贴纸，也不是站在角落里的装饰物，而是正在认真参与系统运转的荒诞工作者。
+The goal is to keep one consistent visual language while allowing different fields to use different recurring IPs.
 
-一句话：**让 AI 不只是“配一张图”，而是把文章里的一个关键认知动作画出来。**
+中文：
 
----
+IP Illustrations 是一个多 IP 中文正文配图 Skill。它不是把多个角色放进同一张图，而是根据文章领域和表达任务，从 IP 备选库里选择一个独立工作流，再使用该 IP 自己的角色设定、构图规则、prompt 模板和 QA。
 
-## 适合谁用
-
-特别适合：
-
-- 写中文文章，需要正文配图和文章插图的人
-- 做知识型内容、方法论内容、AI 工作流内容的人
-- 想把抽象判断画成具体隐喻的人
-- 想要一种比 PPT 信息图更轻、更怪、更有个人识别度的配图风格的人
-- 用 Codex 做内容生产，希望稳定复用一套视觉语言的人
-
-不适合：
-
-- 想要商业插画、品牌 KV 或精致扁平插画的人
-- 想要传统 PPT 信息图、复杂架构图或流程图的人
-- 想要儿童卡通、可爱 IP、表情包风格的人
-- 想把大量正文、长段解释或完整课程页塞进一张图里的人
-- 需要严格可编辑矢量源文件的人
+核心目标是：**统一画风，不统一角色；统一调度，不混合工作流。**
 
 ---
 
-## 它会产出什么
+## Built-in IPs / 内置 IP
 
-默认输出：
+### Pageworker / 页工
 
-- 16:9 横版正文配图
-- 一篇文章的 4-8 张 shot list
-- 每张图的主题、核心意思、结构类型、小黑动作和中文标注建议
-- 最终 PNG 图片，保存到 workspace 的 `assets/<article-slug>-illustrations/`
+English: For documents, notes, knowledge management, information structure, and content systems.
 
-默认不输出：
+中文：适合文档、笔记、知识管理、信息结构、内容系统。形象是折页 / 索引卡式系统操作员。
 
+### Threadsmith / 线匠
+
+English: For paths, workflows, funnels, handoff chains, user journeys, and broken connections.
+
+中文：适合路径、流程、漏斗、承接链路、用户旅程和断点修补。形象是修补路径的线轴工匠。
+
+### Holeseeker / 洞探
+
+English: For debugging, diagnosis, retrospectives, risks, common traps, root causes, and failure modes.
+
+中文：适合 debug、问题诊断、复盘、风险、常见坑、根因和系统失效。形象是排查洞口与裂缝的现场勘探员。
+
+---
+
+## Output / 它会产出什么
+
+Default output / 默认输出：
+
+- 16:9 horizontal article illustrations / 16:9 横版正文配图
+- 4-8 image shot lists for one article / 一篇文章的 4-8 张 shot list
+- IP selection reason, theme, core idea, structure type, character action, elements, and Chinese label suggestions / IP 选择理由、主题、核心意思、结构类型、角色动作、元素和中文标注建议
+- PNG files saved under `assets/<article-slug>-illustrations/` / 最终 PNG 图片保存到 `assets/<article-slug>-illustrations/`
+- Markdown specs for custom IP workflows / 新 IP 定制时输出 Markdown 规格包
+
+Default non-output / 默认不输出：
+
+- Multiple IPs inside one image / 一张图里混用多个 IP
 - PPTX / PDF / Keynote
-- SVG / HTML / Canvas 可编辑图
-- 商业海报或封面 KV
-- 大段文字型信息图
+- SVG / HTML / Canvas editable diagrams
+- Commercial posters or cover key visuals
+- Large text-heavy explainers
 
 ---
 
-## 视觉风格
+## Visual Style / 视觉风格
 
-这个 skill 默认使用 Ian 的“小黑怪诞正文配图”风格：
+English:
+
+- Pure white background, no paper texture, shadow, gradient, or beige tone.
+- Thin black hand-drawn line art with slight wobble.
+- Lots of empty space; the main subject usually uses 40%-60% of the canvas.
+- Sparse red, orange, and blue handwritten Chinese annotations.
+- One image explains one core action, structure, state, or metaphor.
+- The selected IP must perform the core conceptual action, not decorate the side.
+- Strange, clean, memorable, and product-sketch-like; not cute or childish.
+
+中文：
 
 - 纯白背景，不要纸纹、米色、阴影、渐变
 - 黑色手绘线稿，细线，轻微抖动
 - 大量留白，主体只占画面约 40%-60%
 - 少量红色、橙色、蓝色中文手写批注
 - 一张图只表达一个核心动作、结构、状态或隐喻
-- 小黑必须参与核心动作，不能只是装饰
-- 怪诞、有创意、清爽，但不幼稚、不卖萌
+- 被选中的 IP 必须参与核心动作，不能只是装饰
+- 怪诞、有创意、清爽，有产品草图感，但不幼稚、不卖萌
 
 ---
 
-## 示例效果
+## Install / 安装
 
-### 两个断点
-
-![两个断点](examples/images/01-two-breakpoints.png)
-
-### 按目的分拣
-
-![按目的分拣](examples/images/02-sort-by-purpose.png)
-
-### 一鱼多吃
-
-![一鱼多吃](examples/images/03-one-fish-many-uses.png)
-
-### 承接路径
-
-![承接路径](examples/images/04-handoff-path.png)
-
-### 信息井
-
-![信息井](examples/images/05-information-well.png)
-
-### 想法压机
-
-![想法压机](examples/images/06-idea-press.png)
-
-### 内容发酵
-
-![内容发酵](examples/images/07-content-fermentation.png)
-
-### 信任桥
-
-![信任桥](examples/images/08-trust-bridge.png)
-
-这些图片是风格校准样例，不是构图模板。使用时应该从当前文章重新发明隐喻，不要照抄旧案例的物件和构图。
-
----
-
-## 安装
-
-克隆仓库：
-
-```bash
-git clone https://github.com/helloianneo/ian-xiaohei-illustrations.git
-cd ian-xiaohei-illustrations
-```
-
-复制 skill 到 Codex skills 目录：
+Copy the skill directory into your Codex skills folder / 把 skill 子目录复制到 Codex skills 目录：
 
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R ./ian-xiaohei-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
+cp -R ./ip-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
-安装后，在 Codex 里使用：
+Use it in Codex / 在 Codex 里使用：
 
 ```text
-Use $ian-xiaohei-illustrations 为这篇中文文章设计并生成 5 张小黑怪诞正文配图。
+Use $ip-illustrations 为这篇中文文章自动选择合适 IP，并设计 5 张正文配图。
 ```
 
 ---
 
-## 怎么用
+## Usage / 怎么用
 
-### 只做配图规划
+### Auto Select IP / 自动选择 IP
 
 ```text
-Use $ian-xiaohei-illustrations 先不要生图。
-请分析下面这篇文章哪里值得配图，输出 5 张左右的 shot list。
-每张图写清楚：放在哪段后、主题、核心意思、结构类型、小黑在做什么、建议中文标注词。
+Use $ip-illustrations 先不要生图。
+请分析下面这篇文章，自动选择最合适的 IP，输出 5 张左右的 shot list。
+每张图写清楚：放在哪段后、选择的 IP、主题、核心意思、结构类型、角色在做什么、建议中文标注词。
 
 <粘贴文章>
 ```
 
-### 直接生成正文配图
+### Specify One IP / 指定一个 IP
 
 ```text
-Use $ian-xiaohei-illustrations 把下面这篇文章生成 4 张小黑怪诞正文配图。
-要求：16:9 横版、纯白背景、黑色手绘线稿、少量红橙蓝中文手写批注。
-
-<粘贴文章>
+Use $ip-illustrations 用 threadsmith 工作流，为“把注册用户接到付费转化路径”生成一张正文配图。
+不要混用其他 IP。画面要纯白、手绘、少字、怪诞但清爽。
 ```
 
-### 为单个概念生成一张图
+### Custom IP Workflow / 定制新 IP 工作流
 
 ```text
-Use $ian-xiaohei-illustrations 为“信任不是喊出来的，而是一块证据一块证据铺过去”生成一张正文配图。
-画面要怪诞但清爽，小黑必须承担核心动作。
+Use $ip-illustrations 帮我为“学习复盘”领域设计一个新的 IP 工作流。
+只输出 Markdown 规格包，不要生图。
+这个 IP 要适合错题、复盘、学习路径和薄弱点定位。
 ```
 
-### 去掉图里的标题或错误文字
-
-```text
-Use $ian-xiaohei-illustrations 帮我编辑这张图，去掉左上角的“流程图”标题，其他内容保持不变。
-```
-
-更多示例见 [examples/prompts.md](examples/prompts.md)。
+More examples / 更多示例：[`examples/prompts.md`](examples/prompts.md)
 
 ---
 
-## 工作流程
+## Workflow / 工作流程
 
-这个 skill 的流程是：
-
-1. 读取文章、Markdown、Notion 内容、截图或用户给的主题
-2. 提炼核心观点、认知转折、流程结构和适合视觉化的段落
-3. 先输出 shot list：每张图只选一个认知锚点
-4. 为每张图选择结构类型：Workflow、系统局部、前后对比、角色状态、概念隐喻、方法分层、地图路线或小漫画分镜
-5. 重新发明一个低科技、怪诞但成立的物理隐喻
-6. 让小黑承担核心动作
-7. 每张图单独调用图像模型生成
-8. 按 QA checklist 检查：白底、留白、小黑动作、中文标注、非 PPT 感、非旧案例复刻
-9. 保存最终 PNG，并报告用途和路径
+1. Read the article, Markdown, Notion content, screenshot, or topic. / 读取文章、Markdown、Notion 内容、截图或主题。
+2. Determine whether the user wants auto routing, a specified IP, a shot list, generation, editing, or custom IP design. / 判断用户要自动路由、指定 IP、shot list、生成、改图还是定制 IP。
+3. Choose one IP workflow from `ip-illustrations/workflows/`. / 从 `ip-illustrations/workflows/` 选择一个 IP 工作流。
+4. Read only that selected IP workflow. / 只读取被选中的 IP 工作流。
+5. Invent a fresh low-tech physical metaphor. / 重新发明低科技物理隐喻。
+6. Make the selected IP perform the core action. / 让被选中的 IP 承担核心动作。
+7. Generate each image separately. / 每张图单独生成。
+8. Check against the selected IP's QA checklist. / 按所选 IP 的 QA checklist 检查。
+9. Save final PNG files and report paths. / 保存 PNG 并报告路径。
 
 ---
 
-## 目录结构
+## Structure / 目录结构
 
 ```text
 .
 ├── README.md
+├── CHANGELOG.md
+├── CHANGE_TRACKING.md
 ├── LICENSE
 ├── NOTICE.md
-├── assets/
-│   └── ian-wechat-qr.jpg
 ├── examples/
-│   ├── images/
-│   │   ├── 01-two-breakpoints.png
-│   │   ├── 02-sort-by-purpose.png
-│   │   └── ...
 │   └── prompts.md
-└── ian-xiaohei-illustrations/
+├── legacy-assets/
+│   └── upstream-*/
+└── ip-illustrations/
     ├── SKILL.md
     ├── agents/
     │   └── openai.yaml
-    ├── assets/
-    │   └── examples/
-    └── references/
-        ├── style-dna.md
-        ├── xiaohei-ip.md
-        ├── composition-patterns.md
-        ├── prompt-template.md
-        └── qa-checklist.md
+    ├── references/
+    │   ├── global-style-dna.md
+    │   ├── ip-router.md
+    │   ├── output-rules.md
+    │   └── custom-ip-workflow.md
+    └── workflows/
+        ├── pageworker/
+        ├── threadsmith/
+        └── holeseeker/
 ```
 
-真正需要安装到 Codex 的是子目录：
+The directory to install is / 真正需要安装的是：
 
 ```text
-ian-xiaohei-illustrations/
+ip-illustrations/
 ```
 
-根目录的 README、LICENSE、NOTICE 和 examples 是 GitHub 分享文档。
+---
+
+## Notes / 注意事项
+
+- One image uses one IP only. / 一张图只使用一个 IP。
+- Keep Chinese labels short. / 中文标注越短越稳定。
+- The selected IP must be part of the action. / 被选中的 IP 必须参与动作。
+- Do not reuse legacy example compositions. / 不复用历史示例构图。
+- If text quality is poor, reduce labels first. / 中文错字严重时优先减少标注。
+- Legacy upstream assets stay in `legacy-assets/` for audit and attribution only. / 历史上游资产只保留在 `legacy-assets/` 中，用于审计和署名。
 
 ---
 
-## 注意事项
-
-- 图片里的中文文字越短越稳定。
-- 每张图只讲一个核心结构，不要把文章做成说明书。
-- 小黑必须承担核心动作；如果去掉小黑画面仍然完全成立，说明小黑太装饰了。
-- 示例图只用于校准线条密度、留白、颜色克制和小黑参与方式，不要复刻构图。
-- AI 图像模型可能出现错字、幻觉标签、风格漂移或多余标题，生成后需要检查。
-- 如果中文错字严重，优先减少标注词并重生成。
-
----
-
-## 相关项目
-
-- [Ian Handdrawn PPT](https://github.com/helloianneo/ian-handdrawn-ppt) — 中文手绘技术 PPT-style 页面图生成 Skill
-- [Awesome Claude Code Skills](https://github.com/helloianneo/awesome-claude-code-skills) — Claude Code Skills / Agents / Plugins 精选合集
-- [Obsidian + Claude AI Second Brain](https://github.com/helloianneo/obsidian-ai-second-brain) — Obsidian + Claude AI 个人知识库搭建指南
-
----
-
-## 关于作者
-
-**Ian (伊恩)** — 产品设计师 / 一人公司实践者 / AI Builder
-
-用 AI 团队打造一人公司。
-
-- GitHub: [helloianneo](https://github.com/helloianneo)
-- X/Twitter: [@ianneo_ai](https://x.com/ianneo_ai)
-- 网站: [www.ianneo.xyz](https://www.ianneo.xyz)
-- 微信: `ianneoxyz`
-- 邮箱: hello.neoc@gmail.com
-
----
-
-## 继续探索
-
-这套小黑配图 Skill，只是我用 AI 搭建个人生产系统里的一个小工具。
-
-如果你也在用 AI 做内容、知识库、工作流或产品化，可以继续看我的网站：[www.ianneo.xyz](https://www.ianneo.xyz)。
-
-只想先观察，可以关注我的 [X/Twitter](https://x.com/ianneo_ai)。
-
-想了解 Indie Builders Club，加微信：`ianneoxyz`，备注「OPC」。
-
-<p>
-  <img src="assets/ian-wechat-qr.jpg" alt="Ian 微信二维码" width="120">
-</p>
-
-不方便扫码也可以搜索微信：`ianneoxyz`。
-
----
-
-## License
+## License / 许可
 
 MIT License. See [LICENSE](LICENSE).
