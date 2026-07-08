@@ -21,6 +21,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed / 变更
 
+- Changed routing from article-level single-IP selection to per-shot IP routing while preserving single-IP isolation inside each image.
+- 将路由从“整篇文章选一个 IP”升级为“每张配图单独选择 IP”，同时保持单图内部只使用一个 IP。
 - Replaced the single-IP `pageworker-illustrations` package with `ip-illustrations`.
 - 将单 IP 的 `pageworker-illustrations` 包替换为 `ip-illustrations`。
 - Reworked the main skill from direct image-prompt rules into an IP router and workflow dispatcher.

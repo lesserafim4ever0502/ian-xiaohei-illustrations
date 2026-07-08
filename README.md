@@ -1,8 +1,8 @@
 # IP Illustrations / IP 正文配图库
 
-> English: A Codex Skill for choosing one isolated visual IP workflow and turning Chinese articles into clean, strange, hand-drawn explanatory illustrations.
+> English: A Codex Skill for routing each article illustration shot to one isolated visual IP workflow.
 >
-> 中文：一个 Codex Skill，用“IP 备选库 + 隔离工作流”的方式，为中文文章生成白底、手绘、怪诞但清爽的正文配图。
+> 中文：一个 Codex Skill，用“IP 备选库 + 逐图路由 + 隔离工作流”的方式，为中文文章生成白底、手绘、怪诞但清爽的正文配图。
 >
 > 16:9 horizontal / 16:9 横版 | isolated IP workflow / 隔离 IP 工作流 | pure white sketch / 纯白手绘 | sparse Chinese notes / 少量中文批注
 
@@ -12,13 +12,13 @@
 
 English:
 
-IP Illustrations is a multi-IP Codex Skill for Chinese article illustrations. It does not put multiple characters into one image. Instead, it chooses exactly one IP workflow for the current article, then uses that workflow's character, composition rules, prompt template, and QA checklist.
+IP Illustrations is a multi-IP Codex Skill for Chinese article illustrations. It does not put multiple characters into one image. Instead, it routes each illustration shot to exactly one IP workflow, then uses that workflow's character, composition rules, prompt template, and QA checklist.
 
 The goal is to keep one consistent visual language while allowing different fields to use different recurring IPs.
 
 中文：
 
-IP Illustrations 是一个多 IP 中文正文配图 Skill。它不是把多个角色放进同一张图，而是根据文章领域和表达任务，从 IP 备选库里选择一个独立工作流，再使用该 IP 自己的角色设定、构图规则、prompt 模板和 QA。
+IP Illustrations 是一个多 IP 中文正文配图 Skill。它不是把多个角色放进同一张图，而是根据每个配图点的核心动作，从 IP 备选库里选择一个独立工作流，再使用该 IP 自己的角色设定、构图规则、prompt 模板和 QA。
 
 核心目标是：**统一画风，不统一角色；统一调度，不混合工作流。**
 
@@ -52,7 +52,7 @@ Default output / 默认输出：
 
 - 16:9 horizontal article illustrations / 16:9 横版正文配图
 - 4-8 image shot lists for one article / 一篇文章的 4-8 张 shot list
-- IP selection reason, theme, core idea, structure type, character action, elements, and Chinese label suggestions / IP 选择理由、主题、核心意思、结构类型、角色动作、元素和中文标注建议
+- Per-shot IP selection reason, theme, core idea, structure type, character action, elements, and Chinese label suggestions / 每张图的 IP 选择理由、主题、核心意思、结构类型、角色动作、元素和中文标注建议
 - PNG files saved under `assets/<article-slug>-illustrations/` / 最终 PNG 图片保存到 `assets/<article-slug>-illustrations/`
 - Markdown specs for custom IP workflows / 新 IP 定制时输出 Markdown 规格包
 
@@ -102,19 +102,20 @@ cp -R ./ip-illustrations "${CODEX_HOME:-$HOME/.codex}/skills/"
 Use it in Codex / 在 Codex 里使用：
 
 ```text
-Use $ip-illustrations 为这篇中文文章自动选择合适 IP，并设计 5 张正文配图。
+Use $ip-illustrations 为这篇中文文章逐图选择合适 IP，并设计 5 张正文配图。
 ```
 
 ---
 
 ## Usage / 怎么用
 
-### Auto Select IP / 自动选择 IP
+### Mixed IP Shot List / 混合 IP 配图规划
 
 ```text
 Use $ip-illustrations 先不要生图。
-请分析下面这篇文章，自动选择最合适的 IP，输出 5 张左右的 shot list。
-每张图写清楚：放在哪段后、选择的 IP、主题、核心意思、结构类型、角色在做什么、建议中文标注词。
+请分析下面这篇文章，逐图选择最合适的 IP，输出 5 张左右的 shot list。
+同一篇文章可以使用多个 IP，但同一张图只能使用一个 IP。
+每张图写清楚：放在哪段后、选择的 IP、选择理由、主题、核心意思、结构类型、角色在做什么、建议中文标注词。
 
 <粘贴文章>
 ```
@@ -142,8 +143,8 @@ More examples / 更多示例：[`examples/prompts.md`](examples/prompts.md)
 
 1. Read the article, Markdown, Notion content, screenshot, or topic. / 读取文章、Markdown、Notion 内容、截图或主题。
 2. Determine whether the user wants auto routing, a specified IP, a shot list, generation, editing, or custom IP design. / 判断用户要自动路由、指定 IP、shot list、生成、改图还是定制 IP。
-3. Choose one IP workflow from `ip-illustrations/workflows/`. / 从 `ip-illustrations/workflows/` 选择一个 IP 工作流。
-4. Read only that selected IP workflow. / 只读取被选中的 IP 工作流。
+3. Split the article into illustration shots and choose one IP workflow for each shot. / 把文章拆成多个配图点，并为每张图选择一个 IP 工作流。
+4. Read only the selected IP workflow for the current shot. / 生成某张图时只读取该图被选中的 IP 工作流。
 5. Invent a fresh low-tech physical metaphor. / 重新发明低科技物理隐喻。
 6. Make the selected IP perform the core action. / 让被选中的 IP 承担核心动作。
 7. Generate each image separately. / 每张图单独生成。
@@ -172,6 +173,7 @@ More examples / 更多示例：[`examples/prompts.md`](examples/prompts.md)
     ├── references/
     │   ├── global-style-dna.md
     │   ├── ip-router.md
+    │   ├── shot-routing-rules.md
     │   ├── output-rules.md
     │   └── custom-ip-workflow.md
     └── workflows/
@@ -190,7 +192,7 @@ ip-illustrations/
 
 ## Notes / 注意事项
 
-- One image uses one IP only. / 一张图只使用一个 IP。
+- One article can use multiple IPs, but one image uses one IP only. / 一篇文章可以使用多个 IP，但一张图只使用一个 IP。
 - Keep Chinese labels short. / 中文标注越短越稳定。
 - The selected IP must be part of the action. / 被选中的 IP 必须参与动作。
 - Do not reuse legacy example compositions. / 不复用历史示例构图。
